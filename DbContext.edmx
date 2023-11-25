@@ -1,0 +1,1427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbBrokerageNewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MCompany">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CompanyAdddess" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="CellNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="50" />
+          <Property Name="PANNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CST" Type="nvarchar" MaxLength="50" />
+          <Property Name="BST" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logo" Type="image" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="TallyId" Type="varchar" MaxLength="50" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MCustomer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="BrokeragePer" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CellNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="BankId" Type="bigint" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IFSCCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="VATNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CSTNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BSTNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PANNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TANNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="500" />
+          <Property Name="FAXNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="BankAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MExpenses">
+          <Key>
+            <PropertyRef Name="ExpenseId" />
+          </Key>
+          <Property Name="ExpenseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="bigint" Nullable="false" />
+          <Property Name="Module" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="ExpenseCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ExpenseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Specification" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaxLimit" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProductionFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="BatchExpense" Type="nvarchar" MaxLength="1" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MFinancialYear">
+          <Key>
+            <PropertyRef Name="TrId" />
+          </Key>
+          <Property Name="TrId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FinancialYear" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="FYear" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="YearClose" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="AcFlag" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MMaterial">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialCode" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="MaterialName" Type="nvarchar" MaxLength="100" />
+          <Property Name="MatrialUnit" Type="bigint" />
+          <Property Name="PackingId" Type="bigint" />
+          <Property Name="ForCasteFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nchar" MaxLength="200" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbBrokerageNew.dbo.MMenu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MMenu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+            <PropertyRef Name="Module" />
+          </Key>
+          <Property Name="CompanyId" Type="bigint" />
+          <Property Name="MenuId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Module" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentId" Type="nvarchar" MaxLength="4" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="50" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MOpningBalnce">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="bigint" Nullable="false" />
+          <Property Name="Module" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="TCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="AcType" Type="nvarchar" MaxLength="1" />
+          <Property Name="FYear" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="OpeningBal" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProductTypeId" Type="bigint" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MPacking">
+          <Key>
+            <PropertyRef Name="PackingId" />
+          </Key>
+          <Property Name="PackingId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackingCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="PackingName" Type="nvarchar" MaxLength="30" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MPaymentTerms">
+          <Key>
+            <PropertyRef Name="PaymentTermId" />
+          </Key>
+          <Property Name="PaymentTermId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentTermCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="PaymentTermDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="Days" Type="nvarchar" MaxLength="3" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MPOTerms">
+          <Key>
+            <PropertyRef Name="POtermsId" />
+          </Key>
+          <Property Name="POtermsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="bigint" Nullable="false" />
+          <Property Name="Module" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="POtermsCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="POtermsName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MSupplier">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="BrokeragePer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupplierAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CellNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="VATNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CSTNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BSTNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PANNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TANNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="500" />
+          <Property Name="FAXNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="30" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="30" />
+          <Property Name="BankAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MUnit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="30" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="CompanyId" Type="bigint" Nullable="false" />
+          <Property Name="Module" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserPwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="20" />
+          <Property Name="AcFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_MCustomer_MUser">
+          <End Role="MUser" Type="Self.MUser" Multiplicity="0..1" />
+          <End Role="MCustomer" Type="Self.MCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MCustomer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MExpenses_MUser">
+          <End Role="MUser" Type="Self.MUser" Multiplicity="0..1" />
+          <End Role="MExpenses" Type="Self.MExpenses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MExpenses">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MPOTerms_MUser">
+          <End Role="MUser" Type="Self.MUser" Multiplicity="0..1" />
+          <End Role="MPOTerms" Type="Self.MPOTerms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MPOTerms">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MSupplier_MUser">
+          <End Role="MUser" Type="Self.MUser" Multiplicity="0..1" />
+          <End Role="MSupplier" Type="Self.MSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MSupplier">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUnit_MUnit">
+          <End Role="MUser" Type="Self.MUser" Multiplicity="1" />
+          <End Role="MUnit" Type="Self.MUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MUnit">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_Entity_MenuRights" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MCompany_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MCustomer_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MExpenses_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MFinancialYear_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MMaterial_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MMenu_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MOpningBalnce_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MPacking_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MPaymentTerms_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MPOTerms_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MSupplier_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MUnit_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_MUser_EntityReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DbBrokerageNewModelStoreContainer">
+          <EntitySet Name="MCompany" EntityType="Self.MCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MCustomer" EntityType="Self.MCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MExpenses" EntityType="Self.MExpenses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MFinancialYear" EntityType="Self.MFinancialYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MMaterial" EntityType="Self.MMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MOpningBalnce" EntityType="Self.MOpningBalnce" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MPacking" EntityType="Self.MPacking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MPaymentTerms" EntityType="Self.MPaymentTerms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MPOTerms" EntityType="Self.MPOTerms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSupplier" EntityType="Self.MSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUnit" EntityType="Self.MUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUser" EntityType="Self.MUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MMenu" EntityType="Self.MMenu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MMenu].[CompanyId] AS [CompanyId], 
+    [MMenu].[MenuId] AS [MenuId], 
+    [MMenu].[Module] AS [Module], 
+    [MMenu].[MenuName] AS [MenuName], 
+    [MMenu].[ParentId] AS [ParentId], 
+    [MMenu].[AcFlag] AS [AcFlag], 
+    [MMenu].[CreatedBy] AS [CreatedBy], 
+    [MMenu].[CreatedOn] AS [CreatedOn], 
+    [MMenu].[Tag] AS [Tag], 
+    [MMenu].[EntryType] AS [EntryType]
+    FROM [dbo].[MMenu] AS [MMenu]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_MCustomer_MUser" Association="Self.FK_MCustomer_MUser">
+            <End Role="MUser" EntitySet="MUser" />
+            <End Role="MCustomer" EntitySet="MCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MExpenses_MUser" Association="Self.FK_MExpenses_MUser">
+            <End Role="MUser" EntitySet="MUser" />
+            <End Role="MExpenses" EntitySet="MExpenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MPOTerms_MUser" Association="Self.FK_MPOTerms_MUser">
+            <End Role="MUser" EntitySet="MUser" />
+            <End Role="MPOTerms" EntitySet="MPOTerms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MSupplier_MUser" Association="Self.FK_MSupplier_MUser">
+            <End Role="MUser" EntitySet="MUser" />
+            <End Role="MSupplier" EntitySet="MSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUnit_MUnit" Association="Self.FK_MUnit_MUnit">
+            <End Role="MUser" EntitySet="MUser" />
+            <End Role="MUnit" EntitySet="MUnit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbBrokerageNewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MCompany">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyAdddess" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CellNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PANNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TallyId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DbEntitty" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MCompanies" EntityType="Self.MCompany" />
+          <EntitySet Name="MCustomers" EntityType="DbBrokerageNewModel.MCustomer" />
+          <EntitySet Name="MExpenses" EntityType="DbBrokerageNewModel.MExpens" />
+          <EntitySet Name="MFinancialYears" EntityType="DbBrokerageNewModel.MFinancialYear" />
+          <EntitySet Name="MMaterials" EntityType="DbBrokerageNewModel.MMaterial" />
+          <EntitySet Name="MMenus" EntityType="DbBrokerageNewModel.MMenu" />
+          <EntitySet Name="MOpningBalnces" EntityType="DbBrokerageNewModel.MOpningBalnce" />
+          <EntitySet Name="MPackings" EntityType="DbBrokerageNewModel.MPacking" />
+          <FunctionImport Name="SP_Entity_MenuRights" ReturnType="Collection(DbBrokerageNewModel.SP_Entity_MenuRights_Result)" />
+          <EntitySet Name="MPaymentTerms" EntityType="DbBrokerageNewModel.MPaymentTerm" />
+          <EntitySet Name="MPOTerms" EntityType="DbBrokerageNewModel.MPOTerm" />
+          <EntitySet Name="MSuppliers" EntityType="DbBrokerageNewModel.MSupplier" />
+          <EntitySet Name="MUnits" EntityType="DbBrokerageNewModel.MUnit" />
+          <EntitySet Name="MUsers" EntityType="DbBrokerageNewModel.MUser" />
+          <AssociationSet Name="FK_MCustomer_MUser" Association="DbBrokerageNewModel.FK_MCustomer_MUser">
+            <End Role="MUser" EntitySet="MUsers" />
+            <End Role="MCustomer" EntitySet="MCustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MExpenses_MUser" Association="DbBrokerageNewModel.FK_MExpenses_MUser">
+            <End Role="MUser" EntitySet="MUsers" />
+            <End Role="MExpens" EntitySet="MExpenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MPOTerms_MUser" Association="DbBrokerageNewModel.FK_MPOTerms_MUser">
+            <End Role="MUser" EntitySet="MUsers" />
+            <End Role="MPOTerm" EntitySet="MPOTerms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MSupplier_MUser" Association="DbBrokerageNewModel.FK_MSupplier_MUser">
+            <End Role="MUser" EntitySet="MUsers" />
+            <End Role="MSupplier" EntitySet="MSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUnit_MUnit" Association="DbBrokerageNewModel.FK_MUnit_MUnit">
+            <End Role="MUser" EntitySet="MUsers" />
+            <End Role="MUnit" EntitySet="MUnits" />
+          </AssociationSet>
+          <FunctionImport Name="Sp_MCompany_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MCompany_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MCustomer_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MCustomer_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MExpenses_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MExpenses_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MFinancialYear_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MFinancialYear_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MMaterial_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MMaterial_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MMenu_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MMenu_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MOpningBalnce_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MOpningBalnce_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MPacking_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MPacking_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MPaymentTerms_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MPaymentTerms_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MPOTerms_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MPOTerms_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MSupplier_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MSupplier_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MUnit_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MUnit_EntityReport_Result)" />
+          <FunctionImport Name="Sp_MUser_EntityReport" ReturnType="Collection(DbBrokerageNewModel.Sp_MUser_EntityReport_Result)" />
+        </EntityContainer>
+        <EntityType Name="MCustomer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="BrokeragePer" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CellNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BankId" Type="Int64" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IFSCCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="VATNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CSTNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BSTNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PANNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TANNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FAXNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BranchName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BankAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MUser" Relationship="DbBrokerageNewModel.FK_MCustomer_MUser" FromRole="MCustomer" ToRole="MUser" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MExpens">
+          <Key>
+            <PropertyRef Name="ExpenseId" />
+          </Key>
+          <Property Name="ExpenseId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int64" Nullable="false" />
+          <Property Name="Module" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Specification" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaxLimit" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductionFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="BatchExpense" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MUser" Relationship="DbBrokerageNewModel.FK_MExpenses_MUser" FromRole="MExpens" ToRole="MUser" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MFinancialYear">
+          <Key>
+            <PropertyRef Name="TrId" />
+          </Key>
+          <Property Name="TrId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FinancialYear" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FYear" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="YearClose" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="AcFlag" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MMaterial">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MatrialUnit" Type="Int64" />
+          <Property Name="PackingId" Type="Int64" />
+          <Property Name="ForCasteFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MMenu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+            <PropertyRef Name="Module" />
+          </Key>
+          <Property Name="CompanyId" Type="Int64" />
+          <Property Name="MenuId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Module" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MOpningBalnce">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int64" Nullable="false" />
+          <Property Name="Module" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="TCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="AcType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="FYear" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="OpeningBal" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductTypeId" Type="Int64" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MPacking">
+          <Key>
+            <PropertyRef Name="PackingId" />
+          </Key>
+          <Property Name="PackingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackingCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="PackingName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="SP_Entity_MenuRights_Result">
+          <Property Type="Int32" Name="MenuId" Nullable="true" />
+          <Property Type="Int32" Name="Module" Nullable="true" />
+          <Property Type="Int32" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="MPaymentTerm">
+          <Key>
+            <PropertyRef Name="PaymentTermId" />
+          </Key>
+          <Property Name="PaymentTermId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentTermCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTermDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Days" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MPOTerm">
+          <Key>
+            <PropertyRef Name="POtermsId" />
+          </Key>
+          <Property Name="POtermsId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int64" Nullable="false" />
+          <Property Name="Module" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="POtermsCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="POtermsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MUser" Relationship="DbBrokerageNewModel.FK_MPOTerms_MUser" FromRole="MPOTerm" ToRole="MUser" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSupplier">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="BrokeragePer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CellNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VATNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CSTNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BSTNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PANNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TANNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FAXNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BranchName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BankAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MUser" Relationship="DbBrokerageNewModel.FK_MSupplier_MUser" FromRole="MSupplier" ToRole="MUser" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MUnit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="UnitName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MUser" Relationship="DbBrokerageNewModel.FK_MUnit_MUnit" FromRole="MUnit" ToRole="MUser" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int64" Nullable="false" />
+          <Property Name="Module" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AcFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MCustomers" Relationship="DbBrokerageNewModel.FK_MCustomer_MUser" FromRole="MUser" ToRole="MCustomer" />
+          <NavigationProperty Name="MExpenses" Relationship="DbBrokerageNewModel.FK_MExpenses_MUser" FromRole="MUser" ToRole="MExpens" />
+          <NavigationProperty Name="MPOTerms" Relationship="DbBrokerageNewModel.FK_MPOTerms_MUser" FromRole="MUser" ToRole="MPOTerm" />
+          <NavigationProperty Name="MSuppliers" Relationship="DbBrokerageNewModel.FK_MSupplier_MUser" FromRole="MUser" ToRole="MSupplier" />
+          <NavigationProperty Name="MUnits" Relationship="DbBrokerageNewModel.FK_MUnit_MUnit" FromRole="MUser" ToRole="MUnit" />
+          <Property Name="EntryType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_MCustomer_MUser">
+          <End Type="DbBrokerageNewModel.MUser" Role="MUser" Multiplicity="0..1" />
+          <End Type="DbBrokerageNewModel.MCustomer" Role="MCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MCustomer">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MExpenses_MUser">
+          <End Type="DbBrokerageNewModel.MUser" Role="MUser" Multiplicity="0..1" />
+          <End Type="DbBrokerageNewModel.MExpens" Role="MExpens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MExpens">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MPOTerms_MUser">
+          <End Type="DbBrokerageNewModel.MUser" Role="MUser" Multiplicity="0..1" />
+          <End Type="DbBrokerageNewModel.MPOTerm" Role="MPOTerm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MPOTerm">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MSupplier_MUser">
+          <End Type="DbBrokerageNewModel.MUser" Role="MUser" Multiplicity="0..1" />
+          <End Type="DbBrokerageNewModel.MSupplier" Role="MSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MSupplier">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUnit_MUnit">
+          <End Type="DbBrokerageNewModel.MUser" Role="MUser" Multiplicity="1" />
+          <End Type="DbBrokerageNewModel.MUnit" Role="MUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="MUnit">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Sp_MCompany_EntityReport_Result">
+          <Property Type="Int64" Name="CompanyId" Nullable="false" />
+          <Property Type="String" Name="CompanyCode" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="CompanyAdddess" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="PhoneNo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="CellNo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PANNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CST" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BST" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="Logo" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="TallyId" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Sp_MCustomer_EntityReport_Result">
+          <Property Type="Int64" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="CustomerCode" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BrokeragePer" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CustomerAddress" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="PhoneNo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="CellNo" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="BankId" Nullable="true" />
+          <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IFSCCode" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="VATNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CSTNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BSTNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PANNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TANNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="FAXNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ContactPerson" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BankName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="BranchName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="BankAddress" Nullable="false" MaxLength="300" />
+        </ComplexType>
+        <ComplexType Name="Sp_MExpenses_EntityReport_Result">
+          <Property Type="Int64" Name="ExpenseId" Nullable="false" />
+          <Property Type="Int64" Name="CompanyId" Nullable="false" />
+          <Property Type="String" Name="Module" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="ExpenseCode" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="ExpenseName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Specification" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="MaxLimit" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ProductionFlag" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="BatchExpense" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="Sp_MFinancialYear_EntityReport_Result">
+          <Property Type="Int64" Name="TrId" Nullable="false" />
+          <Property Type="String" Name="FinancialYear" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="FYear" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="YearClose" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="AcFlag" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="Sp_MMaterial_EntityReport_Result">
+          <Property Type="Int64" Name="MaterialId" Nullable="false" />
+          <Property Type="String" Name="MaterialCode" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="MaterialName" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="MatrialUnit" Nullable="true" />
+          <Property Type="Int64" Name="PackingId" Nullable="true" />
+          <Property Type="String" Name="ForCasteFlag" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Sp_MMenu_EntityReport_Result">
+          <Property Type="Int64" Name="CompanyId" Nullable="true" />
+          <Property Type="Int64" Name="MenuId" Nullable="false" />
+          <Property Type="String" Name="Module" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="MenuName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ParentId" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Tag" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Sp_MOpningBalnce_EntityReport_Result">
+          <Property Type="Int64" Name="TID" Nullable="false" />
+          <Property Type="Int64" Name="CompanyId" Nullable="false" />
+          <Property Type="String" Name="Module" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="TCode" Nullable="false" MaxLength="5" />
+          <Property Type="Int64" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="AcType" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="FYear" Nullable="false" MaxLength="4" />
+          <Property Type="Decimal" Name="OpeningBal" Nullable="true" Precision="20" Scale="2" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="ProductTypeId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_MPacking_EntityReport_Result">
+          <Property Type="Int64" Name="PackingId" Nullable="false" />
+          <Property Type="String" Name="PackingCode" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="PackingName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Sp_MPaymentTerms_EntityReport_Result">
+          <Property Type="Int64" Name="PaymentTermId" Nullable="false" />
+          <Property Type="String" Name="PaymentTermCode" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="PaymentTermDescription" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Days" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remarks" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Sp_MPOTerms_EntityReport_Result">
+          <Property Type="Int64" Name="POtermsId" Nullable="false" />
+          <Property Type="Int64" Name="CompanyId" Nullable="false" />
+          <Property Type="String" Name="Module" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="POtermsCode" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="POtermsName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Sp_MSupplier_EntityReport_Result">
+          <Property Type="Int64" Name="SupplierId" Nullable="false" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BrokeragePer" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SupplierName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SupplierAddress" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="PhoneNo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="CellNo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="VATNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CSTNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BSTNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PANNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TANNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="FAXNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BankName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="BankAddress" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Sp_MUnit_EntityReport_Result">
+          <Property Type="Int64" Name="UnitId" Nullable="false" />
+          <Property Type="String" Name="UnitCode" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="UnitName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Remark" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Sp_MUser_EntityReport_Result">
+          <Property Type="Int64" Name="CompanyId" Nullable="false" />
+          <Property Type="String" Name="Module" Nullable="false" MaxLength="2" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="UserPwd" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AcFlag" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbBrokerageNewModelStoreContainer" CdmEntityContainer="DbEntitty">
+          <EntitySetMapping Name="MCompanies">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MCompany">
+              <MappingFragment StoreEntitySet="MCompany">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyAdddess" ColumnName="CompanyAdddess" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+                <ScalarProperty Name="CST" ColumnName="CST" />
+                <ScalarProperty Name="BST" ColumnName="BST" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TallyId" ColumnName="TallyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MCustomers">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MCustomer">
+              <MappingFragment StoreEntitySet="MCustomer">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="FAXNo" ColumnName="FAXNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="TANNo" ColumnName="TANNo" />
+                <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+                <ScalarProperty Name="BSTNo" ColumnName="BSTNo" />
+                <ScalarProperty Name="CSTNo" ColumnName="CSTNo" />
+                <ScalarProperty Name="VATNo" ColumnName="VATNo" />
+                <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="BrokeragePer" ColumnName="BrokeragePer" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MExpenses">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MExpens">
+              <MappingFragment StoreEntitySet="MExpenses">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="BatchExpense" ColumnName="BatchExpense" />
+                <ScalarProperty Name="ProductionFlag" ColumnName="ProductionFlag" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="MaxLimit" ColumnName="MaxLimit" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="ExpenseName" ColumnName="ExpenseName" />
+                <ScalarProperty Name="ExpenseCode" ColumnName="ExpenseCode" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ExpenseId" ColumnName="ExpenseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MFinancialYears">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MFinancialYear">
+              <MappingFragment StoreEntitySet="MFinancialYear">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="YearClose" ColumnName="YearClose" />
+                <ScalarProperty Name="FYear" ColumnName="FYear" />
+                <ScalarProperty Name="FinancialYear" ColumnName="FinancialYear" />
+                <ScalarProperty Name="TrId" ColumnName="TrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MMaterials">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MMaterial">
+              <MappingFragment StoreEntitySet="MMaterial">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="ForCasteFlag" ColumnName="ForCasteFlag" />
+                <ScalarProperty Name="PackingId" ColumnName="PackingId" />
+                <ScalarProperty Name="MatrialUnit" ColumnName="MatrialUnit" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+                <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MMenus">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MMenu">
+              <MappingFragment StoreEntitySet="MMenu">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOpningBalnces">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MOpningBalnce">
+              <MappingFragment StoreEntitySet="MOpningBalnce">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="OpeningBal" ColumnName="OpeningBal" />
+                <ScalarProperty Name="FYear" ColumnName="FYear" />
+                <ScalarProperty Name="AcType" ColumnName="AcType" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="TCode" ColumnName="TCode" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MPackings">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MPacking">
+              <MappingFragment StoreEntitySet="MPacking">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="PackingName" ColumnName="PackingName" />
+                <ScalarProperty Name="PackingCode" ColumnName="PackingCode" />
+                <ScalarProperty Name="PackingId" ColumnName="PackingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Entity_MenuRights" FunctionName="DbBrokerageNewModel.Store.SP_Entity_MenuRights">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.SP_Entity_MenuRights_Result">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="MPaymentTerms">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MPaymentTerm">
+              <MappingFragment StoreEntitySet="MPaymentTerms">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="PaymentTermDescription" ColumnName="PaymentTermDescription" />
+                <ScalarProperty Name="PaymentTermCode" ColumnName="PaymentTermCode" />
+                <ScalarProperty Name="PaymentTermId" ColumnName="PaymentTermId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MPOTerms">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MPOTerm">
+              <MappingFragment StoreEntitySet="MPOTerms">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="POtermsName" ColumnName="POtermsName" />
+                <ScalarProperty Name="POtermsCode" ColumnName="POtermsCode" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="POtermsId" ColumnName="POtermsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSuppliers">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MSupplier">
+              <MappingFragment StoreEntitySet="MSupplier">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="FAXNo" ColumnName="FAXNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="TANNo" ColumnName="TANNo" />
+                <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+                <ScalarProperty Name="BSTNo" ColumnName="BSTNo" />
+                <ScalarProperty Name="CSTNo" ColumnName="CSTNo" />
+                <ScalarProperty Name="VATNo" ColumnName="VATNo" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="BrokeragePer" ColumnName="BrokeragePer" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUnits">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MUnit">
+              <MappingFragment StoreEntitySet="MUnit">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUsers">
+            <EntityTypeMapping TypeName="DbBrokerageNewModel.MUser">
+              <MappingFragment StoreEntitySet="MUser">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MCompany_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MCompany_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MCompany_EntityReport_Result">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyAdddess" ColumnName="CompanyAdddess" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+                <ScalarProperty Name="CST" ColumnName="CST" />
+                <ScalarProperty Name="BST" ColumnName="BST" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TallyId" ColumnName="TallyId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MCustomer_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MCustomer_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MCustomer_EntityReport_Result">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="BrokeragePer" ColumnName="BrokeragePer" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+                <ScalarProperty Name="VATNo" ColumnName="VATNo" />
+                <ScalarProperty Name="CSTNo" ColumnName="CSTNo" />
+                <ScalarProperty Name="BSTNo" ColumnName="BSTNo" />
+                <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+                <ScalarProperty Name="TANNo" ColumnName="TANNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="FAXNo" ColumnName="FAXNo" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MExpenses_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MExpenses_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MExpenses_EntityReport_Result">
+                <ScalarProperty Name="ExpenseId" ColumnName="ExpenseId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="ExpenseCode" ColumnName="ExpenseCode" />
+                <ScalarProperty Name="ExpenseName" ColumnName="ExpenseName" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="MaxLimit" ColumnName="MaxLimit" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ProductionFlag" ColumnName="ProductionFlag" />
+                <ScalarProperty Name="BatchExpense" ColumnName="BatchExpense" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MFinancialYear_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MFinancialYear_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MFinancialYear_EntityReport_Result">
+                <ScalarProperty Name="TrId" ColumnName="TrId" />
+                <ScalarProperty Name="FinancialYear" ColumnName="FinancialYear" />
+                <ScalarProperty Name="FYear" ColumnName="FYear" />
+                <ScalarProperty Name="YearClose" ColumnName="YearClose" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MMaterial_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MMaterial_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MMaterial_EntityReport_Result">
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="MaterialCode" ColumnName="MaterialCode" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+                <ScalarProperty Name="MatrialUnit" ColumnName="MatrialUnit" />
+                <ScalarProperty Name="PackingId" ColumnName="PackingId" />
+                <ScalarProperty Name="ForCasteFlag" ColumnName="ForCasteFlag" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MMenu_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MMenu_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MMenu_EntityReport_Result">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MOpningBalnce_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MOpningBalnce_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MOpningBalnce_EntityReport_Result">
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="TCode" ColumnName="TCode" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="AcType" ColumnName="AcType" />
+                <ScalarProperty Name="FYear" ColumnName="FYear" />
+                <ScalarProperty Name="OpeningBal" ColumnName="OpeningBal" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MPacking_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MPacking_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MPacking_EntityReport_Result">
+                <ScalarProperty Name="PackingId" ColumnName="PackingId" />
+                <ScalarProperty Name="PackingCode" ColumnName="PackingCode" />
+                <ScalarProperty Name="PackingName" ColumnName="PackingName" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MPaymentTerms_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MPaymentTerms_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MPaymentTerms_EntityReport_Result">
+                <ScalarProperty Name="PaymentTermId" ColumnName="PaymentTermId" />
+                <ScalarProperty Name="PaymentTermCode" ColumnName="PaymentTermCode" />
+                <ScalarProperty Name="PaymentTermDescription" ColumnName="PaymentTermDescription" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MPOTerms_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MPOTerms_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MPOTerms_EntityReport_Result">
+                <ScalarProperty Name="POtermsId" ColumnName="POtermsId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="POtermsCode" ColumnName="POtermsCode" />
+                <ScalarProperty Name="POtermsName" ColumnName="POtermsName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MSupplier_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MSupplier_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MSupplier_EntityReport_Result">
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="BrokeragePer" ColumnName="BrokeragePer" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="VATNo" ColumnName="VATNo" />
+                <ScalarProperty Name="CSTNo" ColumnName="CSTNo" />
+                <ScalarProperty Name="BSTNo" ColumnName="BSTNo" />
+                <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+                <ScalarProperty Name="TANNo" ColumnName="TANNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="FAXNo" ColumnName="FAXNo" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MUnit_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MUnit_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MUnit_EntityReport_Result">
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_MUser_EntityReport" FunctionName="DbBrokerageNewModel.Store.Sp_MUser_EntityReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbBrokerageNewModel.Sp_MUser_EntityReport_Result">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="AcFlag" ColumnName="AcFlag" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

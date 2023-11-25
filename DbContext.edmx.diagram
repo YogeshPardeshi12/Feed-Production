@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95bcfc042f6649c7a129098b96f9d51a" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MCompany" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MCustomer" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MExpens" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MFinancialYear" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MMaterial" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MMenu" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MOpningBalnce" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MPacking" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MPaymentTerm" Width="1.5" PointX="12" PointY="0.75" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MPOTerm" Width="1.5" PointX="3" PointY="12.25" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MSupplier" Width="1.5" PointX="3" PointY="16.125" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MUnit" Width="1.5" PointX="3" PointY="22.25" />
+        <EntityTypeShape EntityType="DbBrokerageNewModel.MUser" Width="1.5" PointX="0.75" PointY="1.875" />
+        <AssociationConnector Association="DbBrokerageNewModel.FK_MCustomer_MUser" />
+        <AssociationConnector Association="DbBrokerageNewModel.FK_MExpenses_MUser" />
+        <AssociationConnector Association="DbBrokerageNewModel.FK_MPOTerms_MUser" />
+        <AssociationConnector Association="DbBrokerageNewModel.FK_MSupplier_MUser" />
+        <AssociationConnector Association="DbBrokerageNewModel.FK_MUnit_MUnit" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

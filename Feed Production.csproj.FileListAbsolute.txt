@@ -1,0 +1,15 @@
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\Feed Production.dll.config
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\Feed Production.dll
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\Feed Production.pdb
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\DataContext.dll
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\EntityFramework.dll
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\DataContext.pdb
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\DataContext.dll.config
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\EntityFramework.xml
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\obj\Debug\Feed Production.csproj.AssemblyReference.cache
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\obj\Debug\Feed Production.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\obj\Debug\Feed Production.csproj.CopyComplete
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\obj\Debug\Feed Production.dll
+C:\Users\LENOVO\source\repos\Feed Production\Feed Production\obj\Debug\Feed Production.pdb
