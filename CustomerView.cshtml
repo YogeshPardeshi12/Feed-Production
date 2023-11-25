@@ -1,0 +1,151 @@
+﻿@model Feed_Production.Models.Customer_Models
+@*@{
+        ViewBag.Title = "CustomerView";
+    }*@
+<h2 class="text-center bg-primary">CustomerView</h2>
+@using (Html.BeginForm("Post", "Customer", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CustomerCode:</label>
+                @Html.TextBoxFor(m => m.CustomerCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BrokeragePer:</label>
+                @Html.TextBoxFor(m => m.BrokeragePer, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Customer Name</label>
+                @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CustomerAddress</label>
+                @Html.TextBoxFor(m => m.CustomerAddress, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PhoneNo</label>
+                @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CellNo</label>
+                @Html.TextBoxFor(m => m.CellNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BankId</label>
+                @Html.TextBoxFor(m => m.BankId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>AccountNo</label>
+                @Html.TextBoxFor(m => m.AccountNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>IFSCCode</label>
+                @Html.TextBoxFor(m => m.IFSCCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>VATNo</label>
+                @Html.TextBoxFor(m => m.VATNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CSTNo</label>
+                @Html.TextBoxFor(m => m.CSTNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BSTNo</label>
+                @Html.TextBoxFor(m => m.BSTNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PANNo</label>
+                @Html.TextBoxFor(m => m.PANNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>TANNo</label>
+                @Html.TextBoxFor(m => m.TANNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EmailId</label>
+                @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>FAXNo</label>
+                @Html.TextBoxFor(m => m.FAXNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>ContactPerson</label>
+                @Html.TextBoxFor(m => m.ContactPerson, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BankName</label>
+                @Html.TextBoxFor(m => m.BankName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BranchName</label>
+                @Html.TextBoxFor(m => m.BranchName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BankAddress</label>
+                @Html.TextBoxFor(m => m.BankAddress, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-success">Reset</button>
+
+}
+@Html.Action("ReportMCustomer")
+@Scripts.Render("~/bundles/jqueryval")
+
+
+
+

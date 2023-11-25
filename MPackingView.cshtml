@@ -1,0 +1,41 @@
+﻿@model Feed_Production.Models.MPacking_Models
+@*@{
+        ViewBag.Title = "MPackingView";
+    }*@
+
+<h2 class="text-center bg-primary">MPackingView</h2>
+@using (Html.BeginForm("Post", "MPacking", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PackingCode</label>
+                @Html.TextBoxFor(m => m.PackingCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PackingName</label>
+                @Html.TextBoxFor(m => m.PackingName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+

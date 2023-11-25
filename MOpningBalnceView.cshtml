@@ -1,0 +1,77 @@
+﻿@model Feed_Production.Models.MOpningBalnce_Models
+@*@{
+        ViewBag.Title = "MOpningBalnceView";
+    }*@
+
+<h2 class="text-center bg-primary">MOpningBalnceView</h2>
+@using (Html.BeginForm("Post", "MOpningBalnce", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CompanyId</label>
+                @Html.TextBoxFor(m => m.CompanyId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Module</label>
+                @Html.TextBoxFor(m => m.Module, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>TCode</label>
+                @Html.TextBoxFor(m => m.TCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CustomerId</label>
+                @Html.TextBoxFor(m => m.CustomerId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>AcType</label>
+                @Html.TextBoxFor(m => m.AcType, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>FYear</label>
+                @Html.TextBoxFor(m => m.FYear, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>OpeningBal</label>
+                @Html.TextBoxFor(m => m.OpeningBal, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>ProductTypeId</label>
+                @Html.TextBoxFor(m => m.ProductTypeId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+

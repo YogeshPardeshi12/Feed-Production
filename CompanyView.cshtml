@@ -1,0 +1,96 @@
+﻿@model Feed_Production.Models.Company_Models
+
+<h2 class="text-center bg-primary">CompanyView</h2>
+
+@using (Html.BeginForm("Post", "Company", FormMethod.Post))
+{
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Company Code:</label>
+                @Html.TextBoxFor(m => m.CompanyCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Company Name:</label>
+                @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CompanyAdddess:</label>
+                @Html.TextBoxFor(m => m.CompanyAdddess, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CompanyAdddess, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Phone No:</label>
+                @Html.TextBoxFor(m => m.PhoneNo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PhoneNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Cell No:</label>
+                @Html.TextBoxFor(m => m.CellNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EmailId:</label>
+                @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EmailId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PANNo:</label>
+                @Html.TextBoxFor(m => m.PANNo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CST:</label>
+                @Html.TextBoxFor(m => m.CST, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BST:</label>
+                @Html.TextBoxFor(m => m.BST, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark:</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>TallyId:</label>
+                @Html.TextBoxFor(m => m.TallyId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType:</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-success">Reset</button>
+
+}
+@Html.Action("ReportMCompany")
+@Scripts.Render("~/bundles/jqueryval")
+

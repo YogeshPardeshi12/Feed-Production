@@ -1,0 +1,58 @@
+﻿@model Feed_Production.Models.MPOTerms_Models
+@*@{
+        ViewBag.Title = "MPOTermsView";
+    }*@
+
+<h2 class="text-center bg-primary">MPOTermsView</h2>
+@using (Html.BeginForm("Post", "MPOTerms", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CompanyId</label>
+                @Html.TextBoxFor(m => m.CompanyId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Module</label>
+                @Html.TextBoxFor(m => m.Module, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>POtermsCode</label>
+                @Html.TextBoxFor(m => m.POtermsCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>POtermsName</label>
+                @Html.TextBoxFor(m => m.POtermsName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Description</label>
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+

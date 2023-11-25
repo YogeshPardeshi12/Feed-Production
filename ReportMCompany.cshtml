@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Feed_Production.Models.Company_Models>
+@{
+    ViewBag.Title = "ReportMCompany";
+}
+
+<h2>ReportMCompany</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>code</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone No</th>
+        <th>cell No</th>
+        <th>EmailId</th>
+        <th>PANNo</th>
+        <th>CST</th>
+        <th>BST</th>
+        <th>Remark</th>
+        <th>TallyId</th>
+        <th>EntryType</th>
+    </tr>
+    <tbody>
+        @foreach(var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(m=> item.CompanyCode)</td>
+                <td>@Html.DisplayFor(m=> item.CompanyName)</td>
+                <td>@Html.DisplayFor(m=> item.CompanyAdddess)</td>
+                <td>@Html.DisplayFor(m=> item.PhoneNo)</td>
+                <td>@Html.DisplayFor(m=> item.CellNo)</td>
+                <td>@Html.DisplayFor(m=> item.EmailId)</td>
+                <td>@Html.DisplayFor(m=> item.PANNo)</td>
+                <td>@Html.DisplayFor(m=> item.CST)</td>
+                <td>@Html.DisplayFor(m=> item.BST)</td>
+                <td>@Html.DisplayFor(m=> item.Remark)</td>
+                <td>@Html.DisplayFor(m=> item.TallyId)</td>
+                <td>@Html.DisplayFor(m=> item.EntryType)</td>
+            </tr>
+            }
+    </tbody>
+
+</table>
+

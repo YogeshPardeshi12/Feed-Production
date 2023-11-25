@@ -1,0 +1,41 @@
+﻿@model Feed_Production.Models.MFinancialYear_Models
+@*@{
+        ViewBag.Title = "MFinancialYearView";
+    }*@
+
+<h2>MFinancialYearView</h2>
+@using (Html.BeginForm("Post", "MFinancialYear", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>FinancialYear:</label>
+                @Html.TextBoxFor(m => m.FinancialYear, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>FYear:</label>
+                @Html.TextBoxFor(m => m.FYear, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>YearClose:</label>
+                @Html.TextBoxFor(m => m.YearClose, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType:</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+}
+@Html.Action("ReportMFinancialYear")
+@Scripts.Render("~/bundles/jqueryval")
+
+

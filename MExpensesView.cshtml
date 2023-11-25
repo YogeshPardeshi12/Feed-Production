@@ -1,0 +1,71 @@
+﻿@model Feed_Production.Models.MExpenses_Models
+@*@{
+        ViewBag.Title = "MExpensesView";
+    }*@
+
+<h2 class="text-center bg-primary"> MExpensesView</h2>
+@using (Html.BeginForm("Post", "MExpenses", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Module:</label>
+                @Html.TextBoxFor(m => m.Module, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>ExpenseCode:</label>
+                @Html.TextBoxFor(m => m.ExpenseCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>ExpenseName:</label>
+                @Html.TextBoxFor(m => m.ExpenseName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Specification:</label>
+                @Html.TextBoxFor(m => m.Specification, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>MaxLimit:</label>
+                @Html.TextBoxFor(m => m.MaxLimit, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark:</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>ProductionFlag:</label>
+                @Html.TextBoxFor(m => m.ProductionFlag, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>BatchExpense:</label>
+                @Html.TextBoxFor(m => m.BatchExpense, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType:</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+}
+@Html.Action("ReportMExpenses")
+@Scripts.Render("~/bundles/jqueryval")
+
+

@@ -1,0 +1,46 @@
+﻿@model Feed_Production.Models.MPaymentTerms_Models
+@*@{
+        ViewBag.Title = "MPaymentTermsView";
+    }*@
+
+<h2 class="text-center bg-primary">MPaymentTermsView</h2>
+@using (Html.BeginForm("Post", "MPaymentTerms", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PaymentTermCode</label>
+                @Html.TextBoxFor(m => m.PaymentTermCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PaymentTermDescription</label>
+                @Html.TextBoxFor(m => m.PaymentTermDescription, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Days</label>
+                @Html.TextBoxFor(m => m.Days, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remarks</label>
+                @Html.TextBoxFor(m => m.Remarks, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+

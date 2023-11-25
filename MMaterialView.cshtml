@@ -1,0 +1,60 @@
+﻿@model Feed_Production.Models.MMaterial_Models
+@*@{
+        ViewBag.Title = "MMaterialView";
+    }*@
+
+<h2 class="text-center bg-danger">MMaterialView</h2>
+@using (Html.BeginForm("Post", "MMaterial", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>MaterialCode</label>
+                @Html.TextBoxFor(m => m.MaterialCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>MaterialName</label>
+                @Html.TextBoxFor(m => m.MaterialName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>MatrialUnit</label>
+                @Html.TextBoxFor(m => m.MatrialUnit, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>PackingId</label>
+                @Html.TextBoxFor(m => m.PackingId, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>ForCasteFlag</label>
+                @Html.TextBoxFor(m => m.ForCasteFlag, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+
+
+

@@ -1,0 +1,41 @@
+﻿@model Feed_Production.Models.MUnit_Models
+@*@{
+        ViewBag.Title = "MUnitView";
+    }*@
+
+<h2 class="text-center bg-primary">MUnitView</h2>
+@using (Html.BeginForm("Post", "MUnit", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>UnitCode</label>
+                @Html.TextBoxFor(m => m.UnitCode, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>UnitName</label>
+                @Html.TextBoxFor(m => m.UnitName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Remark</label>
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>EntryType</label>
+                @Html.TextBoxFor(m => m.EntryType, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn-danger">Save</button>
+    <button type="reset" class="btn-danger">Reset</button>
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+
+
